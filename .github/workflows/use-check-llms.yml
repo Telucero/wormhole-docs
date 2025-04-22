@@ -1,0 +1,13 @@
+name: Validate LLMS
+
+on:
+  pull_request:
+    branches: [wormhole_test] #change this 
+
+jobs:
+  check-llms:
+    uses: Telucero/workflows/.github/workflows/check-llms.yml@Central_repo_test # change this 
+    with:
+      file_path: "wormhole-docs/llms-full.txt"
+      generate_script: "wormhole-docs/scripts/generate_llms.py" # should this be calling the script in the wormhole-docs repo?
+      working_directory: "wormhole-mkdocs"
