@@ -4,7 +4,8 @@ import os
 import sys
 from urllib.parse import urlparse
 
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
+# Support both REPO_SCOPED_TOKEN and fallback to GITHUB_TOKEN
+GITHUB_TOKEN = os.environ.get("REPO_SCOPED_TOKEN") or os.environ.get("GITHUB_TOKEN")
 
 
 def parse_github_url(url):
@@ -20,7 +21,7 @@ def parse_github_url(url):
 def issue_exists(owner, repo, title):
     """Check if an issue with the same title already exists."""
     try:
-        url = f"https://api.github.com/repos/Telucero/wormhole-docs/issues" # match my forked repo
+        url = f"https://api.github.com/repos/{owner}/{repo}/issues"
         headers = {
             "Authorization": f"token {GITHUB_TOKEN}",
             "Accept": "application/vnd.github.v3+json",
@@ -45,7 +46,7 @@ def create_github_issue(owner, repo, title, body):
             print(f"Issue '{title}' already exists. Skipping creation.")
             return
 
-        url = f"https://api.github.com/repos/Telucero/wormhole-docs/issues" # match my forked repo
+        url = f"https://api.github.com/repos/{owner}/{repo}/issues"
         headers = {
             "Authorization": f"token {GITHUB_TOKEN}",
             "Accept": "application/vnd.github.v3+json",
@@ -55,11 +56,8 @@ def create_github_issue(owner, repo, title, body):
 
         if response.status_code == 201:
             print(f"Successfully created issue '{title}'")
-            return
         else:
-            print(
-                f"Failed to create issue '{title}'. Status code: {response.status_code}"
-            )
+            print(f"Failed to create issue '{title}'. Status code: {response.status_code}")
             print(response.text)
             sys.exit(1)
     except Exception as e:
@@ -68,12 +66,10 @@ def create_github_issue(owner, repo, title, body):
 
 
 def main():
-    # Check if GITHUB_TOKEN is set
     if not GITHUB_TOKEN:
-        print("Error: GITHUB_TOKEN environment variable is not set.")
+        print("Error: GITHUB_TOKEN or REPO_SCOPED_TOKEN environment variable is not set.")
         sys.exit(1)
 
-    # Read the JSON file with outdated repositories
     try:
         with open("outdated_repositories.json", "r") as f:
             data = json.load(f)
@@ -89,7 +85,6 @@ Current version: {repo['current_version']}
 Latest version: {repo['latest_version']}
 
 Please review the change log and update the documentation accordingly."""
-
         create_github_issue(owner, repo_name, title, body)
 
 
