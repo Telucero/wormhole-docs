@@ -1,19 +1,14 @@
-name: Trigger Wormhole MkDocs Build
+name: Trigger MkDocs Build
 
 on:
   pull_request_target:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  trigger-check-mkdocs-build:
+  call-build-docs:
     uses: Telucero/workflows/.github/workflows/check-mkdocs-build.yml@Central_repo_test
     with:
-      repository: 'Telucero/wormhole-mkdocs'
-      branch: 'main'
-      path: 'wormhole-docs'
-      url_prefix: 'wormhole-mkdocs'
-      rewrite_image_paths: true
-      deploy: false
+      repo_name: wormhole-docs
+      mkdocs_repo: Telucero/wormhole-mkdocs
     secrets:
       REPO_SCOPED_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
