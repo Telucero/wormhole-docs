@@ -9,11 +9,11 @@ jobs:
   trigger-check-mkdocs-build:
     uses: Telucero/workflows/.github/workflows/check-mkdocs-build.yml@Central_repo_test
     with:
-      repository: 'Telucero/wormhole-mkdocs'     # 
-      branch: 'main'                             # 
-      path: 'wormhole-docs'                      
-      url_prefix: 'wormhole-mkdocs'              #
-      rewrite_image_paths: true                 
-      deploy: false                              
+      repository: 'Telucero/wormhole-mkdocs'
+      branch: 'main'
+      path: 'wormhole-docs'
+      url_prefix: 'wormhole-mkdocs'
+      rewrite_image_paths: true
+      deploy: false
     secrets:
-      REPO_SCOPED_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}  # Optional — set in repo calling this
+      REPO_SCOPED_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
