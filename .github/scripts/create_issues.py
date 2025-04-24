@@ -21,7 +21,7 @@ def parse_github_url(url):
 def issue_exists(owner, repo, title):
     """Check if an issue with the same title already exists."""
     try:
-        url = f"https://api.github.com/repos/{owner}/{repo}/issues"
+        url = f"https://api.github.com/repos/wormhole-foundation/wormhole-docs/issues"
         headers = {
             "Authorization": f"token {GITHUB_TOKEN}",
             "Accept": "application/vnd.github.v3+json",
@@ -46,7 +46,7 @@ def create_github_issue(owner, repo, title, body):
             print(f"Issue '{title}' already exists. Skipping creation.")
             return
 
-        url = f"https://api.github.com/repos/{owner}/{repo}/issues"
+        url = f"https://api.github.com/repos/wormhole-foundation/wormhole-docs/issues"
         headers = {
             "Authorization": f"token {GITHUB_TOKEN}",
             "Accept": "application/vnd.github.v3+json",
