@@ -11,6 +11,5 @@ jobs:
     with:
       mkdocs_repo: papermoonio/wormhole-mkdocs
       docs_dir: wormhole-docs
-      use_submodule: true
     secrets:
       token: ${{ secrets.REPO_SCOPED_TOKEN }}
