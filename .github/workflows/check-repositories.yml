@@ -7,8 +7,6 @@ on:
 
 jobs:
   check-repositories:
-    uses: Telucero/workflows/.github/workflows/check-repositories.yml@main  # Calling the centralized workflow
-    with:
-      # Any input parameters can go here, though in this case there are none
+    uses: Telucero/workflows/.github/workflows/check-repositories.yml@main  # Calling the reusable workflow
     secrets:
-      REPO_SCOPED_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}  # Passing the secret here
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Passing the secret here
