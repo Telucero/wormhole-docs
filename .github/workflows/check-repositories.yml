@@ -9,4 +9,4 @@ jobs:
   check-repositories:
     uses: Telucero/workflows/.github/workflows/check-repositories.yml@main
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
