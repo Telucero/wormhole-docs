@@ -8,5 +8,4 @@ on:
 jobs:
   check-repositories:
     uses: Telucero/workflows/.github/workflows/check-repositories.yml@main  # Calling the reusable workflow
-    secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Passing the secret here
+   
