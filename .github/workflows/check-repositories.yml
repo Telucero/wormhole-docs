@@ -9,4 +9,6 @@ jobs:
   check-repositories:
     uses: Telucero/workflows/.github/workflows/check-repositories.yml@main  # Calling the centralized workflow
     with:
-      my_custom_token: ${{ secrets.REPO_SCOPED_TOKEN }}  # Passing your custom token here
+      # Any input parameters can go here, though in this case there are none
+    secrets:
+      REPO_SCOPED_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}  # Passing the secret here
