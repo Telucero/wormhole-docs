@@ -1,0 +1,81 @@
+material_overrides:
+  home:
+    deploy_contracts_on_two__e11ae9: Deploy contracts on two testnets and learn how to send and receive messages across chains.
+    create_messaging_contracts: Create Messaging Contracts
+    leverage_connect_to_build__1b2bcf: Leverage Connect to build a complete UI for multichain transactions with minimal setup.
+    create_a_react_bridging__92c033: Create a React Bridging App
+    use_the_wormhole_typescript__0d1ea0: Use the Wormhole TypeScript SDK and Token Bridge to power cross-chain token transfers.
+    create_token_transfer_workflows: Create Token Transfer Workflows
+    level_up_with_tutorials: Level Up with Tutorials
+    explore_dev_arena: Explore Dev Arena
+    learn_the_fundamentals_and__5594cd: Learn the fundamentals and build real cross-chain applications in the Dev Arena with
+      interactive, hands-on modules.
+    learn_through_interactive_courses: Learn Through Interactive Courses
+    create_governance_solutions: Create governance solutions.
+    multigov: MultiGov
+    retrieve_on_chain_data__81619d: Retrieve on-chain data on demand.
+    queries: Queries
+    send_verified_cross_chain__4b5aee: Send verified cross-chain messages.
+    messaging: Messaging
+    drop_a_bridging_widget__d35ce3: Drop a bridging widget into your app.
+    connect: Connect
+    bridge_faster_with_intent__5619b4: Bridge faster with intent-based routing.
+    settlement: Settlement
+    move_native_tokens_across__150cba: Move native tokens across chains.
+    ntt_native_token_transfers: NTT (Native Token Transfers)
+    native_token_transfers: Native Token Transfers
+    explore_by_product: Explore by Product
+    compare_products: Compare Products
+    access_all_the_information__fc13d0: Access all the information and resources you need to develop secure multichain applications
+      powered by Wormhole.
+    wormhole_documentation: Wormhole Documentation
+    wormhole_docs: Wormhole Docs
+  '404':
+    404_not_found: 404 - Not found
+  main:
+    page_actions: Page Actions
+    documentation_for_wormhole: Documentation for Wormhole
+  partials:
+    feedback:
+      permission_is_hereby_granted__d24cc2: |-
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+          of this software and associated documentation files (the "Software"), to
+          deal in the Software without restriction, including without limitation the
+          rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+          sell copies of the Software, and to permit persons to whom the Software is
+          furnished to do so, subject to the following conditions:
+
+          The above copyright notice and this permission notice shall be included in
+          all copies or substantial portions of the Software.
+
+          THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+          IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+          FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+          AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+          LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+          FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+          IN THE SOFTWARE.
+        -->
+    footer:
+      privacy_policy: Privacy policy
+      terms_of_use: Terms of use
+      papermoon: PaperMoon
+      made_with_by: Made with 🩵 by
+      ai_resources: AI Resources
+action:
+  edit: Edit
+  view: View
+clipboard:
+  copied: Copied
+footer:
+  next: Next
+  previous: Previous
+  title: Title
+header: Header
+nav: Nav
+source:
+  file:
+    date:
+      created: Created
+      updated: Updated
+tabs: Tabs

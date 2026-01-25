@@ -1,0 +1,183 @@
+# English translations for Wormhole.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the Wormhole project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Wormhole Docs\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.15.0\n"
+
+msgid "action.edit"
+msgstr "Edit"
+
+msgid "action.view"
+msgstr "View"
+
+msgid "clipboard.copied"
+msgstr "Copied"
+
+msgid "footer.next"
+msgstr "Next"
+
+msgid "footer.previous"
+msgstr "Previous"
+
+msgid "footer.title"
+msgstr "Title"
+
+msgid "header"
+msgstr "Header"
+
+msgid "material_overrides.404.404_not_found"
+msgstr "404 - Not found"
+
+msgid "material_overrides.home.access_all_the_information__fc13d0"
+msgstr "Access all the information and resources you need to develop secure multichain applications powered by Wormhole."
+
+msgid "material_overrides.home.bridge_faster_with_intent__5619b4"
+msgstr "Bridge faster with intent-based routing."
+
+msgid "material_overrides.home.compare_products"
+msgstr "Compare Products"
+
+msgid "material_overrides.home.connect"
+msgstr "Connect"
+
+msgid "material_overrides.home.create_a_react_bridging__92c033"
+msgstr "Create a React Bridging App"
+
+msgid "material_overrides.home.create_governance_solutions"
+msgstr "Create governance solutions."
+
+msgid "material_overrides.home.create_messaging_contracts"
+msgstr "Create Messaging Contracts"
+
+msgid "material_overrides.home.create_token_transfer_workflows"
+msgstr "Create Token Transfer Workflows"
+
+msgid "material_overrides.home.deploy_contracts_on_two__e11ae9"
+msgstr "Deploy contracts on two testnets and learn how to send and receive messages across chains."
+
+msgid "material_overrides.home.drop_a_bridging_widget__d35ce3"
+msgstr "Drop a bridging widget into your app."
+
+msgid "material_overrides.home.explore_by_product"
+msgstr "Explore by Product"
+
+msgid "material_overrides.home.explore_dev_arena"
+msgstr "Explore Dev Arena"
+
+msgid "material_overrides.home.learn_the_fundamentals_and__5594cd"
+msgstr "Learn the fundamentals and build real cross-chain applications in the Dev Arena with interactive, hands-on modules."
+
+msgid "material_overrides.home.learn_through_interactive_courses"
+msgstr "Learn Through Interactive Courses"
+
+msgid "material_overrides.home.level_up_with_tutorials"
+msgstr "Level Up with Tutorials"
+
+msgid "material_overrides.home.leverage_connect_to_build__1b2bcf"
+msgstr "Leverage Connect to build a complete UI for multichain transactions with minimal setup."
+
+msgid "material_overrides.home.messaging"
+msgstr "Messaging"
+
+msgid "material_overrides.home.move_native_tokens_across__150cba"
+msgstr "Move native tokens across chains."
+
+msgid "material_overrides.home.multigov"
+msgstr "MultiGov"
+
+msgid "material_overrides.home.native_token_transfers"
+msgstr "Native Token Transfers"
+
+msgid "material_overrides.home.ntt_native_token_transfers"
+msgstr "NTT (Native Token Transfers)"
+
+msgid "material_overrides.home.queries"
+msgstr "Queries"
+
+msgid "material_overrides.home.retrieve_on_chain_data__81619d"
+msgstr "Retrieve on-chain data on demand."
+
+msgid "material_overrides.home.send_verified_cross_chain__4b5aee"
+msgstr "Send verified cross-chain messages."
+
+msgid "material_overrides.home.settlement"
+msgstr "Settlement"
+
+msgid "material_overrides.home.use_the_wormhole_typescript__0d1ea0"
+msgstr "Use the Wormhole TypeScript SDK and Token Bridge to power cross-chain token transfers."
+
+msgid "material_overrides.home.wormhole_docs"
+msgstr "Wormhole Docs"
+
+msgid "material_overrides.home.wormhole_documentation"
+msgstr "Wormhole Documentation"
+
+msgid "material_overrides.main.documentation_for_wormhole"
+msgstr "Documentation for Wormhole"
+
+msgid "material_overrides.main.page_actions"
+msgstr "Page Actions"
+
+msgid "material_overrides.partials.feedback.permission_is_hereby_granted__d24cc2"
+msgstr ""
+"Permission is hereby granted, free of charge, to any person obtaining a copy\n"
+"  of this software and associated documentation files (the \"Software\"), to\n"
+"  deal in the Software without restriction, including without limitation the\n"
+"  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or\n"
+"  sell copies of the Software, and to permit persons to whom the Software is\n"
+"  furnished to do so, subject to the following conditions:\n"
+"\n"
+"  The above copyright notice and this permission notice shall be included in\n"
+"  all copies or substantial portions of the Software.\n"
+"\n"
+"  THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n"
+"  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n"
+"  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE\n"
+"  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n"
+"  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n"
+"  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS\n"
+"  IN THE SOFTWARE.\n"
+"-->"
+
+msgid "material_overrides.partials.footer.ai_resources"
+msgstr "AI Resources"
+
+msgid "material_overrides.partials.footer.made_with_by"
+msgstr "Made with 🩵 by"
+
+msgid "material_overrides.partials.footer.papermoon"
+msgstr "PaperMoon"
+
+msgid "material_overrides.partials.footer.privacy_policy"
+msgstr "Privacy policy"
+
+msgid "material_overrides.partials.footer.terms_of_use"
+msgstr "Terms of use"
+
+msgid "nav"
+msgstr "Nav"
+
+msgid "source.file.date.created"
+msgstr "Created"
+
+msgid "source.file.date.updated"
+msgstr "Updated"
+
+msgid "tabs"
+msgstr "Tabs"
+
