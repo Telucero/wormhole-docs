@@ -1106,7 +1106,7 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
   first-run:
-    name: Rose First Run (Batched)
+    name: Rose First Run
     environment: translations
     needs: guard
     if: ${{ github.event_name == 'workflow_dispatch' && needs.guard.outputs.allowed == 'true' && inputs.file_filter == 'first_run' }}
@@ -1201,10 +1201,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install PyYAML ruamel.yaml Babel
 
-      - name: Run Rose pipeline in first_run batches
+      - name: Run Rose pipeline for first_run
         shell: bash
         run: |
-          set -uo pipefail
+          set -euo pipefail
 
           if [[ -z "${N8N_WEBHOOK_URL:-}" ]]; then
             echo "N8N_WEBHOOK_URL_TR secret is required" >&2
@@ -1214,18 +1214,22 @@ jobs:
           export ROSE_PRESERVE_TRANSLATIONS=1
 
           LANGS="${{ steps.refs.outputs.languages }}"
-          PLAN_PATH="$(python scripts/translation-workflow/first_run_batches.py --languages "$LANGS")"
+          PLAN_PATH="$(python scripts/translation-workflow/first_run_batches.py --languages "$LANGS" --out "${RUNNER_TEMP}/first_run_plan.json")"
           echo "first_run plan: ${PLAN_PATH}"
 
-          FAIL_LOG="scripts/translations/first_run_failures.jsonl"
+          FAIL_LOG="${RUNNER_TEMP}/first_run_failures.jsonl"
           : > "$FAIL_LOG"
-          failures=0
-          batches=0
 
-          run_one() {
-            local lang="$1"
-            local batch_dirs_json="$2"
-            local include_files="$3"
+          for lang in $LANGS; do
+            include_files="$(jq -r --arg lang "$lang" '.missing_dirs_by_language[$lang][]? // empty' "$PLAN_PATH")"
+            if [[ ! -f "locale/${lang}.yml" && ! -f "locale/${lang}.yaml" ]]; then
+              include_files=$'locale/en.yml\n'"$include_files"
+            fi
+
+            if [[ -z "${include_files//[[:space:]]/}" ]]; then
+              echo "No missing directories detected for ${lang}; skipping."
+              continue
+            fi
 
             export ROSE_INCLUDE_FILES="$include_files"
             CMD=(python scripts/translation-workflow/rose_pipeline.py \
@@ -1234,63 +1238,22 @@ jobs:
               --n8n-webhook "$N8N_WEBHOOK_URL" \
               --languages "$lang")
 
-            echo "Running batch for lang=${lang}"
+            echo "Running first_run for lang=${lang}"
             echo "Include paths:"
             printf '%s\n' "$include_files"
-            "${CMD[@]}"
-          }
 
-          for lang in $LANGS; do
-            # Include locale/en.yml for first_run if the target locale file doesn't exist yet.
-            if [[ ! -f "locale/${lang}.yml" && ! -f "locale/${lang}.yaml" ]]; then
-              batches=$((batches + 1))
-              locale_batch_json='["locale/en.yml"]'
-              include_files="locale/en.yml"
-
-              if ! run_one "$lang" "$locale_batch_json" "$include_files"; then
-                echo "Locale batch failed; retrying once (lang=${lang})..." >&2
-                if ! run_one "$lang" "$locale_batch_json" "$include_files"; then
-                  failures=$((failures + 1))
-                  printf '%s\n' "$(jq -nc --arg lang "$lang" --argjson dirs "$locale_batch_json" '{language:$lang, batch_dirs:$dirs}')" >> "$FAIL_LOG"
-                  echo "Locale batch failed twice; logged and continuing (lang=${lang})." >&2
-                fi
-              fi
+            if ! "${CMD[@]}"; then
+              printf '%s\n' "$(
+                jq -nc \
+                  --arg lang "$lang" \
+                  --arg include "$include_files" \
+                  '{language:$lang, include_files: ($include | split("\n") | map(select(length>0)))}'
+              )" >> "$FAIL_LOG"
+              echo "first_run failed; aborting (lang=${lang})." >&2
+              exit 1
             fi
-
-            batch_json_list="$(jq -c --arg lang "$lang" '.batches_by_language[$lang][]? // empty' "$PLAN_PATH")"
-            if [[ -z "$batch_json_list" ]]; then
-              echo "No missing directories detected for ${lang}; skipping."
-              continue
-            fi
-
-            while IFS= read -r batch_dirs_json; do
-              [[ -z "$batch_dirs_json" ]] && continue
-              batches=$((batches + 1))
-
-              include_files="$(python - <<PY\nimport json\narr=json.loads('''$batch_dirs_json''')\nprint('\\n'.join(str(x) for x in arr if str(x).strip()))\nPY\n)"
-              if [[ -z "$include_files" ]]; then
-                continue
-              fi
-
-              if run_one "$lang" "$batch_dirs_json" "$include_files"; then
-                continue
-              fi
-
-              echo "Batch failed; retrying once (lang=${lang})..." >&2
-              if run_one "$lang" "$batch_dirs_json" "$include_files"; then
-                echo "Retry succeeded (lang=${lang})."
-                continue
-              fi
-
-              failures=$((failures + 1))
-              printf '%s\n' "$(jq -nc --arg lang "$lang" --argjson dirs "$batch_dirs_json" '{language:$lang, batch_dirs:$dirs}')" >> "$FAIL_LOG"
-              echo "Batch failed twice; logged and continuing (lang=${lang})." >&2
-            done <<< "$batch_json_list"
           done
-
-          echo "first_run batches processed: $batches"
-          echo "first_run batches failed: $failures"
-          if [[ "$failures" -gt 0 ]]; then
+          if [[ -s "$FAIL_LOG" ]]; then
             echo "Failures logged in $FAIL_LOG"
           fi
 
@@ -1324,7 +1287,7 @@ jobs:
           else
             echo "Summary markdown not found; skipping job summary update."
           fi
-          FAIL_LOG="scripts/translations/first_run_failures.jsonl"
+          FAIL_LOG="${RUNNER_TEMP}/first_run_failures.jsonl"
           if [[ -s "$FAIL_LOG" ]]; then
             echo "" >> "$GITHUB_STEP_SUMMARY"
             echo "### first_run failures" >> "$GITHUB_STEP_SUMMARY"
