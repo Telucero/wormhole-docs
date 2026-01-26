@@ -211,8 +211,8 @@ jobs:
       pull-requests: read
     env:
       N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL_TR }}
-      ROSE_N8N_SENDING_TOKEN: ${{ secrets.N8N_SENDING_TOKEN || '' }}
-      ROSE_N8N_RECEIVING_TOKEN: ${{ secrets.N8N_RECEIVING_TOKEN || '' }}
+      ROSE_N8N_SENDING_TOKEN: ${{ secrets.ROSE_N8N_SENDING_TOKEN || '' }}
+      ROSE_N8N_RECEIVING_TOKEN: ${{ secrets.ROSE_N8N_RECEIVING_TOKEN || '' }}
       ROSE_N8N_ALLOWED_HOST: ${{ vars.N8N_ALLOWED_HOST || '' }}
       ROSE_QUIET: "1"
       ROSE_LANGS_RAW: ${{ vars.ROSE_LANGUAGES }}
@@ -861,8 +861,8 @@ jobs:
       pull-requests: write
     env:
       N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL_TR }}
-      ROSE_N8N_SENDING_TOKEN: ${{ secrets.N8N_SENDING_TOKEN || '' }}
-      ROSE_N8N_RECEIVING_TOKEN: ${{ secrets.N8N_RECEIVING_TOKEN || '' }}
+      ROSE_N8N_SENDING_TOKEN: ${{ secrets.ROSE_N8N_SENDING_TOKEN || '' }}
+      ROSE_N8N_RECEIVING_TOKEN: ${{ secrets.ROSE_N8N_RECEIVING_TOKEN || '' }}
       ROSE_N8N_ALLOWED_HOST: ${{ vars.N8N_ALLOWED_HOST || '' }}
       ROSE_QUIET: "1"
       ROSE_INCLUDE_FILES: ${{ github.event_name == 'workflow_dispatch' && inputs.file_filter || '' }}
@@ -1116,8 +1116,8 @@ jobs:
       pull-requests: write
     env:
       N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL_TR }}
-      ROSE_N8N_SENDING_TOKEN: ${{ secrets.N8N_SENDING_TOKEN || '' }}
-      ROSE_N8N_RECEIVING_TOKEN: ${{ secrets.N8N_RECEIVING_TOKEN || '' }}
+      ROSE_N8N_SENDING_TOKEN: ${{ secrets.ROSE_N8N_SENDING_TOKEN || '' }}
+      ROSE_N8N_RECEIVING_TOKEN: ${{ secrets.ROSE_N8N_RECEIVING_TOKEN || '' }}
       ROSE_N8N_ALLOWED_HOST: ${{ vars.N8N_ALLOWED_HOST || '' }}
       ROSE_QUIET: "1"
       ROSE_INCLUDE_FULL: "true"
